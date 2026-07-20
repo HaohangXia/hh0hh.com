@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- "AX" in Plex Mono, prefers-color-scheme aware (03 §tasteful flex #6) -->
+  <style>
+    .bg { fill: #FAFAF8; }
+    .fg { fill: #0F766E; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0E1113; }
+      .fg { fill: #2DD4BF; }
+    }
+  </style>
+  <rect class="bg" x="0" y="0" width="64" height="64" rx="12"/>
+  <text class="fg" x="32" y="43" text-anchor="middle" font-family="'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace" font-size="30" font-weight="600" letter-spacing="-2">AX</text>
+</svg>

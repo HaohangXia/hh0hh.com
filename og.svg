@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!--
+    OG image — rule-trace card motif with a PASS stamp (03 §tasteful flex #5).
+    Teal on paper: #0F766E on #FAFAF8. Ship as PNG at og.png (conversion
+    pending — see CONTENT_UPDATE.md). Mono stack falls back gracefully in
+    rasterizers without IBM Plex installed.
+  -->
+  <rect width="1200" height="630" fill="#FAFAF8"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#0F766E"/>
+
+  <!-- rule-trace card -->
+  <g>
+    <rect x="80" y="96" width="740" height="438" rx="10" fill="#FFFFFF" stroke="#E4E5E2" stroke-width="2"/>
+    <g font-family="'IBM Plex Mono', ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace">
+      <text x="120" y="156" font-size="22" letter-spacing="3" fill="#5A5F63">VERDICT · SHIPMENT PRE-CHECK</text>
+      <line x1="120" y1="182" x2="780" y2="182" stroke="#E4E5E2" stroke-width="2"/>
+
+      <text x="120" y="232" font-size="24" fill="#1A1D1F">rule BG-XDOC-007 · documentary consistency</text>
+      <text x="120" y="274" font-size="24" fill="#1A1D1F">rule BG-DG-014  · UN listing check</text>
+      <text x="120" y="316" font-size="24" fill="#1A1D1F">rule BG-DOC-001 · required documents</text>
+
+      <text x="120" y="370" font-size="22" fill="#5A5F63">snapshot a3f81c92… · replayed bit-for-bit</text>
+
+      <line x1="120" y1="400" x2="780" y2="400" stroke="#E4E5E2" stroke-width="2"/>
+      <text x="120" y="448" font-size="26" fill="#0F766E">every verdict has a receipt</text>
+      <text x="120" y="496" font-size="22" fill="#5A5F63">96.3% strict · 511-field corpus · 57 rules</text>
+    </g>
+  </g>
+
+  <!-- PASS stamp -->
+  <g transform="translate(905 175) rotate(-9)">
+    <rect x="-120" y="-58" width="240" height="116" rx="10" fill="none" stroke="#0F766E" stroke-width="7"/>
+    <rect x="-108" y="-46" width="216" height="92" rx="6" fill="none" stroke="#0F766E" stroke-width="2" opacity="0.55"/>
+    <text x="0" y="24" text-anchor="middle" font-family="'IBM Plex Mono', ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="64" font-weight="700" letter-spacing="10" fill="#0F766E">PASS</text>
+  </g>
+
+  <!-- identity -->
+  <g font-family="'IBM Plex Sans', 'DejaVu Sans', Arial, sans-serif">
+    <text x="868" y="356" font-size="44" font-weight="600" fill="#1A1D1F">Andrew Xia</text>
+    <text x="868" y="404" font-size="26" fill="#5A5F63">AI Engineer</text>
+    <text x="868" y="438" font-size="26" fill="#5A5F63">LLM Systems &amp; Evals</text>
+    <text x="868" y="472" font-size="26" fill="#5A5F63">Sydney</text>
+    <text x="868" y="528" font-size="28" font-weight="600" fill="#0F766E">The AI drafts.</text>
+    <text x="868" y="562" font-size="28" font-weight="600" fill="#0F766E">The rules decide.</text>
+  </g>
+</svg>

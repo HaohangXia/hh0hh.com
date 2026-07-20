@@ -1,0 +1,18 @@
+# Canonical domain: hh0hh.com — keep in sync with astro.config.mjs `site`.
+User-agent: *
+Allow: /
+
+# AI answer engines — explicitly welcome (this is an AI engineer's portfolio).
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://hh0hh.com/sitemap-index.xml
