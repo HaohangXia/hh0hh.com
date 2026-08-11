@@ -40,7 +40,7 @@
     <!-- Capability, not a job card. "Name / Title / Specialism / City" stacked
          is the layout of a candidate profile; this link is shared on LinkedIn,
          where it sits next to the owner's actual headline. -->
-    <text x="868" y="404" font-size="24" fill="#5A5F63">LLM systems with a</text>
+    <text x="868" y="404" font-size="24" fill="#5A5F63">AI systems with a</text>
     <text x="868" y="436" font-size="24" fill="#5A5F63">deterministic core</text>
     <text x="868" y="528" font-size="28" font-weight="600" fill="#0F766E">The AI drafts.</text>
     <text x="868" y="562" font-size="28" font-weight="600" fill="#0F766E">The rules decide.</text>
