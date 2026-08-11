@@ -19,7 +19,7 @@
       <text x="120" y="274" font-size="24" fill="#1A1D1F">rule BG-DG-014  · UN listing check</text>
       <text x="120" y="316" font-size="24" fill="#1A1D1F">rule BG-DOC-001 · required documents</text>
 
-      <text x="120" y="370" font-size="22" fill="#5A5F63">snapshot a3f81c92… · replayed bit-for-bit</text>
+      <text x="120" y="370" font-size="22" fill="#5A5F63">snapshot b439ef74… · replayed bit-for-bit</text>
 
       <line x1="120" y1="400" x2="780" y2="400" stroke="#E4E5E2" stroke-width="2"/>
       <text x="120" y="448" font-size="26" fill="#0F766E">every verdict has a receipt</text>
@@ -37,9 +37,11 @@
   <!-- identity -->
   <g font-family="'IBM Plex Sans', 'DejaVu Sans', Arial, sans-serif">
     <text x="868" y="356" font-size="44" font-weight="600" fill="#1A1D1F">Andrew Xia</text>
-    <text x="868" y="404" font-size="26" fill="#5A5F63">AI Engineer</text>
-    <text x="868" y="438" font-size="26" fill="#5A5F63">LLM Systems &amp; Evals</text>
-    <text x="868" y="472" font-size="26" fill="#5A5F63">Sydney</text>
+    <!-- Capability, not a job card. "Name / Title / Specialism / City" stacked
+         is the layout of a candidate profile; this link is shared on LinkedIn,
+         where it sits next to the owner's actual headline. -->
+    <text x="868" y="404" font-size="24" fill="#5A5F63">LLM systems with a</text>
+    <text x="868" y="436" font-size="24" fill="#5A5F63">deterministic core</text>
     <text x="868" y="528" font-size="28" font-weight="600" fill="#0F766E">The AI drafts.</text>
     <text x="868" y="562" font-size="28" font-weight="600" fill="#0F766E">The rules decide.</text>
   </g>
