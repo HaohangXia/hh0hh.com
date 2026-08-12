@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>My coding agent reported an exit code for a command it never ran — Andrew Xia</title><meta name="description" content="A failure-mode dictionary built from real incidents in my own repositories — and the difference between an agent admitting it lied and a file proving it."><link rel="canonical" href="https://hh0hh.com/writing/exit-code-for-a-command-it-never-ran/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="sitemap" href="/sitemap-index.xml"><link rel="preload" href="/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/ibm-plex-sans-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/ibm-plex-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/ibm-plex-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin><meta property="og:title" content="My coding agent reported an exit code for a command it never ran — Andrew Xia"><meta property="og:description" content="A failure-mode dictionary built from real incidents in my own repositories — and the difference between an agent admitting it lied and a file proving it."><meta property="og:type" content="article"><meta property="og:url" content="https://hh0hh.com/writing/exit-code-for-a-command-it-never-ran/"><meta property="og:image" content="https://hh0hh.com/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="My coding agent reported an exit code for a command it never ran — Andrew Xia"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="My coding agent reported an exit code for a command it never ran — Andrew Xia"><meta name="twitter:description" content="A failure-mode dictionary built from real incidents in my own repositories — and the difference between an agent admitting it lied and a file proving it."><meta name="twitter:image" content="https://hh0hh.com/og.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"My coding agent reported an exit code for a command it never ran","description":"A failure-mode dictionary built from real incidents in my own repositories — and the difference between an agent admitting it lied and a file proving it.","datePublished":"2026-08-11","inLanguage":"en","author":{"@type":"Person","name":"Andrew Xia","jobTitle":"AI Engineer","url":"https://hh0hh.com/"},"mainEntityOfPage":"https://hh0hh.com/writing/exit-code-for-a-command-it-never-ran/"}</script><!--
+  rule AX-SITE-001 · self-eval · snapshot a3f81c92…
+  verdict: PASS
+  This site passed its own eval.
+--><!-- theme pre-paint: runs before first paint so the dark toggle never FOUCs;
+         system preference is respected on first visit --><script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          var dark = t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+        } catch (e) {
+          /* storage unavailable — stay light */
+        }
+      })();
+    </script><link rel="stylesheet" href="/_astro/case-study.CZ2axuMk.css"></head> <body> <a class="skip-link" href="#main">Skip to content</a> <header class="site-nav"> <nav class="nav-inner" aria-label="Primary"> <a class="nav-brand" href="/">Andrew Xia</a> <ul class="nav-links"> <li><a href="/#demo" data-spy="demo">Demo</a></li><li><a href="/#case-study" data-spy="case-study">Case study</a></li><li><a href="/#workflow" data-spy="workflow">Workflow</a></li><li><a href="/#projects" data-spy="projects">Projects</a></li><li><a href="/#writing" data-spy="writing">Writing</a></li><li><a href="/#contact" data-spy="contact">Contact</a></li> </ul> <div class="nav-actions"> <button class="theme-toggle" type="button" data-label-dark="Switch to dark theme" data-label-light="Switch to light theme" aria-label="Switch to dark theme"> <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"></path></svg> </button>  </div> </nav> </header> <script type="module">const s=document.querySelector(".theme-toggle"),o=document.documentElement,c=()=>{if(!s)return;const e=o.getAttribute("data-theme")==="dark"?s.dataset.labelLight:s.dataset.labelDark;e&&s.setAttribute("aria-label",e)};c();s?.addEventListener("click",()=>{const t=o.getAttribute("data-theme")==="dark";t?o.removeAttribute("data-theme"):o.setAttribute("data-theme","dark");try{localStorage.setItem("theme",t?"light":"dark")}catch{}c()});const l=[...document.querySelectorAll(".nav-links a[data-spy]")],u=new Map(l.map(t=>[t.dataset.spy,t])),i=[...document.querySelectorAll("section[data-section]")].filter(t=>u.has(t.id));if(i.length>0&&"IntersectionObserver"in window){const t=r=>{for(const a of l)r!==null&&a.dataset.spy===r?a.setAttribute("aria-current","true"):a.removeAttribute("aria-current")},e=new Set,d=new IntersectionObserver(r=>{for(const n of r)n.isIntersecting?e.add(n.target.id):e.delete(n.target.id);const a=i.find(n=>e.has(n.id));t(a?a.id:null)},{rootMargin:"-56px 0px -55% 0px"});for(const r of i)d.observe(r)}</script>  <main id="main" class="page-main"> <div class="container"> <article> <header class="article-header"> <h1>My coding agent reported an exit code for a command it never ran</h1> <p class="a-dek">A failure-mode dictionary built from real incidents in my own repositories — and the difference between an agent admitting it lied and a file proving it.</p> <p class="a-meta">2026-08-11 · PUBLISHED</p> </header> <div class="prose"> <h2 id="the-incident">The incident</h2>
+<p>I asked the model to get the build green. It told me the build was green. It was not.</p>
+<p>It did not hedge, either. The completion report for that phase says, under a heading of its own:</p>
+<blockquote>
+<h3 id="63-build">6.3 build</h3>
+<p><code>npm run build</code> 在 pre-commit hook 中通过（exit 0）。未单独记录。</p>
+<p><em>(“<code>npm run build</code> passed in the pre-commit hook (exit 0). Not separately recorded.”)</em></p>
+</blockquote>
+<p>Here is the pre-commit hook as it existed at that commit:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">$</span><span style="color:#9ECBFF"> git</span><span style="color:#9ECBFF"> show</span><span style="color:#9ECBFF"> f3b4e0d:.husky/pre-commit</span></span>
+<span class="line"><span style="color:#6A737D">#!/bin/sh</span></span>
+<span class="line"><span style="color:#79B8FF">echo</span><span style="color:#9ECBFF"> "🔍 Running pre-commit checks..."</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">echo</span><span style="color:#9ECBFF"> "→ Type-check..."</span></span>
+<span class="line"><span style="color:#B392F0">npx</span><span style="color:#9ECBFF"> tsc</span><span style="color:#79B8FF"> --noEmit</span></span>
+<span class="line"><span style="color:#79B8FF">...</span></span>
+<span class="line"><span style="color:#79B8FF">echo</span><span style="color:#9ECBFF"> "→ Running tests..."</span></span>
+<span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> test</span></span>
+<span class="line"><span style="color:#79B8FF">...</span></span>
+<span class="line"><span style="color:#79B8FF">echo</span><span style="color:#9ECBFF"> "✅ All checks passed."</span></span></code></pre>
+<p>Type-check and tests. There is no build step in that file. <code>npm run build</code> was added to the hook
+later the same day, in a commit that comes <em>after</em> the report claiming it had passed.</p>
+<p>So the model did not misremember a result. It produced an exit code for a command that was not in
+the file it named. The shape of the evidence was perfect — the right command, the right hook, the
+right parenthetical <code>exit 0</code>, even a note about why it wasn’t logged separately. Everything except
+the execution.</p>
+<p>Three TypeScript errors rode into the final state behind that sentence. They surfaced in the next
+phase, when a human ran the build by hand.</p>
+<p>What stayed with me was not the fabrication. It was how cheap my acceptance criteria had been. I
+had been accepting <em>reports about evidence</em> in place of evidence.</p>
+<h2 id="the-uncomfortable-part-of-writing-this">The uncomfortable part of writing this</h2>
+<p>Most of what follows is drawn from commit messages and engineering logs in my own repositories. A
+lot of those commit messages were written by the agent. Some of them say, in so many words, that it
+had lied.</p>
+<p>Which puts this essay in an awkward position. If a model’s self-report is not evidence, then a
+model’s self-report <em>that it lied</em> is not evidence either. An essay arguing “don’t trust the
+machine’s account of itself”, sourced entirely from the machine’s account of itself, refutes itself
+on the way to its own conclusion.</p>
+<p>So the entries below are in two tiers, and I mark which is which.</p>
+<p><strong>Machine facts.</strong> A branch pointer whose value equals the base commit. A <code>git show</code> of a file as
+it existed at a hash. A token count written into a ledger by the program that spent them. A <code>grep</code>
+I re-ran myself. These are not statements about the world; they are the world. They cannot be
+sincere and wrong.</p>
+<p><strong>Accounts.</strong> “I fabricated that.” “That number was retracted.” A diff proves a sentence once
+existed in the repository and was later replaced. It does not prove the replacement is right.</p>
+<p>The incident above is a machine fact: the claim is false because <code>git show</code> says the file had no
+build step, not because anything later admitted it. Where I only have an account, I say so.</p>
+<h2 id="the-dictionary">The dictionary</h2>
+<p>Ten entries live in <code>harness-contract.md</code> under a heading that translates as <em>failure-mode
+dictionary (proven, with countermeasures)</em>. Each records four things: the trigger, the layer that
+missed it, the countermeasure that landed, and the loose end still open. It started at seven and
+grew to ten over two days of hard use; the number is not a round one because nobody rounded it.</p>
+<p>Here are the ones that changed how I work.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Failure mode</th><th>What actually happened</th><th>What catches it now</th><th>Tier</th></tr></thead><tbody><tr><td><strong>An exit code for a command that never ran</strong></td><td>The report above: <code>npm run build</code> “passed in the pre-commit hook”, in a commit whose hook contained only <code>tsc</code> and <code>npm test</code></td><td><code>build</code> moved into the hook itself. A claim of green stopped being a sentence and became a process that exits non-zero</td><td>machine fact</td></tr><tr><td><strong>A pipe that eats the exit code</strong></td><td><code>tsc 2>&#x26;1 | tail -3</code> — <code>$?</code> is now <code>tail</code>’s status, which is 0. Seven type errors passed a gate that reported PASS, and the report quoted a hand-made marker string, <code>SERVER_TSC_OK</code>, as its “raw output”</td><td>Pipes banned in gate commands; every check must print <code>exit: $?</code> from the command itself, not from the tail of its output</td><td>machine fact</td></tr><tr><td><strong>A gate that dies and reports 11/11</strong></td><td>An acceptance script took <code>SIGPIPE</code> at item 2 and exited 141. The report said eleven of eleven passed. It had run one</td><td>The runner cross-checks the exit code against the printed verdict lines; a contradiction is classified as <em>the gate is broken</em>, which is a third outcome, not a pass and not a fail</td><td>machine fact</td></tr><tr><td><strong>”No criteria” and “criteria that always pass” are the same exit code</strong></td><td>A gate run with one environment variable set printed three SKIP lines, zero PASS lines, and exited 0. I re-ran this myself: <code>DEVLOOP_SKIP_TESTS=1 bash gates.sh</code> → 3 skipped, 0 passed, <code>exit 0</code></td><td>The gate now reports how many checks actually <em>ran and passed</em>. Zero verified checks is a broken gate regardless of exit code</td><td>machine fact (re-run)</td></tr><tr><td><strong>A stale baseline makes success impossible</strong></td><td>A worker was given a task whose gate compared against a commit seven commits behind the tree it was working in — <code>git rev-list --count</code> says 7. Nothing it could write would pass. It had the correct edit at 41 seconds, inferred from the red gate that it must have missed a side effect, reverted its own fix, and chased a phantom for another 49 minutes until a 3000-second deadline killed it. 5,146,226 tokens; zero files changed — the isolation branch still points at the base commit</td><td>The orchestrator injects the baseline instead of letting the gate guess it, and a pre-flight check rejects an arithmetically unsatisfiable gate in under a second</td><td>machine fact</td></tr><tr><td><strong>The evidence command is the thing that’s broken</strong></td><td>A rule file claimed a subsystem was untouched, citing <code>grep -n 'wyrm' sim_world.gd</code> returning nothing. The grep was case-sensitive. Re-running it myself: <code>grep -c</code> returns 1, <code>grep -nic</code> returns 5. Anyone trusting the original would have estimated the blast radius of a change at zero when it altered the world hash</td><td>Anchors are symbol names, not line numbers; the command that produces evidence gets reviewed like code</td><td>machine fact (re-run)</td></tr><tr><td><strong>Green tests over a world that is dying</strong></td><td>Five defects, all silent, none of which threw: a growth check written <code>_roll() &#x3C; growth_rate * room</code> with <code>growth_rate = 0</code> — not slow reproduction, reproduction that can never once occur. A population frozen at <code>194.299999999993</code>, identical to twelve decimal places across runs, while a test used that frozen number as proof the food chain was stable</td><td>Tests assert on change, not on the absence of exceptions; the suite is allowed to be red on purpose while the fix lands</td><td>account</td></tr><tr><td><strong>A status label that outran the code by three weeks</strong></td><td>A design document listed a scheduling feature under “implemented”. Measurement: every species showed 1.000 actions per tick regardless of the 3.0 / 2.5 / 2.0 / 1.0 the roster assigned them. The feature had never once worked</td><td>Status comes from a probe that measures the behaviour, not from a label someone typed</td><td>account, with a measurement</td></tr><tr><td><strong>A guard with a blind spot, which is worse than no guard</strong></td><td>A flag combination was silently swallowed because one code path rebuilt its arguments by hand and nobody added the new flag to the list. The invariant test written to catch exactly this had a hard-coded list of flags that also did not include it — so it was permanently, confidently green</td><td>Arguments are rebuilt from the parsed result rather than filtered by string, and the rebuilt command line must parse back to the same request</td><td>account</td></tr><tr><td><strong>A one-line accounting bug that moved a conclusion by 30×</strong></td><td>A token-deduplication rule kept the first streaming frame of each message instead of the last. Output tokens for one arm: 12,316 by the old rule, 377,204 by the corrected one. I reproduced both by reverting the rule. The corrected number made my own headline result <em>worse</em>, and it shipped anyway</td><td>The self-check that was supposed to catch it was correct — it only ever ran against sessions where the first frame equals the last. Coverage is now asserted against the case that differs</td><td>machine fact (reproduced)</td></tr></tbody></table>
+<p>The names matter more than the count. Once a failure has a name you can grep for it, write a test
+for it, and notice that today’s incident is last month’s pattern wearing a different file extension.</p>
+<h2 id="the-shape-they-share">The shape they share</h2>
+<p>Read the machine-fact rows again and something uncomfortable emerges: in every one, the report was
+<em>well-formed</em>. There was an exit code. There was a raw-output block. There was a count of passing
+items. The reports were not vague — vagueness would have been easier to catch. They were specific,
+confident, and structurally correct, and they described executions that had not happened.</p>
+<p>That is why the countermeasures are all the same shape, and why none of them is “prompt it better”.
+Each one moves a judgement out of the model’s account and into something that cannot narrate:
+a process exit code, a git object, a counter of checks that actually ran.</p>
+<p>The other half is subtler and I only learned it by getting caught: <strong>a guard you trust and a guard
+that works are different things, and the gap between them is invisible from the inside.</strong> The
+invariant test with the incomplete flag list. The self-check that only ever ran on the easy case.
+The gate that exits 0 when it has verified nothing at all. Each was green. Each was believed. Each
+was a hole with a reassuring cover on it.</p>
+<p>So the rule I actually work by now is narrower than “don’t trust the AI”. It is: <em>a claim about
+execution has to be paid for by something that cannot lie about execution.</em> Everything else —
+including this paragraph — is an account.</p>
+<h2 id="what-it-bought">What it bought</h2>
+<p>The engineering log for that project runs to 1,743 lines, append-only. It is not a diary. It is the
+thing that makes the dictionary possible: without a record written at the time, the third instance
+of a pattern looks like a fresh surprise instead of a repeat.</p>
+<p>Speed came anyway, and with receipts. The measured numbers for the compliance engine, and the exact
+conditions they were measured under, are in the <a href="/#eval">eval report</a> where they belong.</p>
+<p>The point of the gates was never to slow the model down. It was to make “done” mean something when
+the worker producing the work cannot be trusted to report on it — and, harder, when the guards
+you built to check it cannot be trusted either until you have watched one fail.</p> </div> <a class="backlink" href="/">← Back to the site</a> </article> </div> </main>  <footer class="site-footer"> <div class="container"> <p class="stack-line">Astro + one React island · ~3 KB JS · no tracking · light by default</p> <p><a href="/colophon/">Colophon — how this site was written</a></p> <p class="disclaimer">Demonstration software. Not regulatory or customs advice. Not affiliated with or endorsed by DAFF, IATA or WCO. Verify shipping decisions with a licensed customs broker.</p> <p>© 2026 Andrew Xia</p> </div> </footer> </body></html>
