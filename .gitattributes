@@ -1,0 +1,11 @@
+# Built output — bytes must survive the round trip through git unchanged.
+#
+# rules.json is the reason this file exists. The site publishes its SHA-256 and
+# invites the reader to recompute it with:
+#
+#     curl -s https://hh0hh.com/rules.json | sha256sum
+#
+# On Windows, core.autocrlf=true would rewrite LF to CRLF on checkout, changing
+# every byte of every line and therefore the digest — turning a verifiable
+# claim into a wrong one, silently, with no failing build anywhere.
+* -text

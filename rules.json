@@ -1,0 +1,10 @@
+[
+  { "id": "BG-DOC-001", "name": "Required document missing", "regulation": "IATA DGR 65th ed. — shipper's responsibilities", "severity": "blocker" },
+  { "id": "BG-DG-014", "name": "UN number not on air whitelist", "regulation": "IATA DGR 65th ed. — UN listing check", "severity": "blocker" },
+  { "id": "BG-DG-021", "name": "DG declaration / packing instruction mismatch", "regulation": "IATA DGR 65th ed. — PI cross-check", "severity": "warning" },
+  { "id": "BG-XDOC-007", "name": "Cross-document quantity mismatch", "regulation": "Customs documentary consistency", "severity": "warning" },
+  { "id": "BG-XDOC-009", "name": "Cross-document consignee mismatch", "regulation": "Customs documentary consistency", "severity": "warning" },
+  { "id": "BG-BMSB-003", "name": "BMSB seasonal measures window", "regulation": "DAFF BMSB seasonal measures (Sep 1 – May 31, target-risk origins)", "severity": "info" },
+  { "id": "BG-ISPM-005", "name": "Wood packaging ISPM-15 mark unverified", "regulation": "ISPM-15", "severity": "warning" },
+  { "id": "BG-CONF-002", "name": "Low-confidence extraction — manual review", "regulation": "Internal QA threshold", "severity": "review" }
+]
