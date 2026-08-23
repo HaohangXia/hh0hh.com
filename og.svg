@@ -1,48 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <!--
-    OG image — rule-trace card motif with a PASS stamp (03 §tasteful flex #5).
-    Teal on paper: #0F766E on #FAFAF8. Ship as PNG at og.png (conversion
-    pending — see CONTENT_UPDATE.md). Mono stack falls back gracefully in
-    rasterizers without IBM Plex installed.
+    Share card. This is the only thing most people ever see of this site — it is
+    what LinkedIn, Slack and iMessage render, and it is what the owner himself
+    looks at when he pastes the link.
+
+    It used to be a Verdict product card: a 740x438 rule-trace panel with three
+    BG-* rule ids, a rotated PASS stamp and `96.3% strict · 511-field corpus`,
+    with the name set at 44px off to the side. That is a card for a compliance
+    engine that happens to be signed by someone. Four rounds of rebalancing
+    measured only what was inside <main> and never looked here, which is why the
+    site kept reading as a product showcase after each one.
+
+    Now: the name is the largest thing, the claim under it covers all three
+    systems, and each system gets one line stating a mechanism — no scores, no
+    product hierarchy, no stamp. DevLoop leads because it is the only one a
+    reader can open today.
+
+    ⛔ Do not add a number to this card. A figure here arrives with no scope note
+    and no way to check it, which is the shape this site exists to argue against.
+    The three lines below are mechanisms; mechanisms are either in the code or
+    they are not.
+
+    ⚠️ These three lines paraphrase `src/data/systems.ts` receipts. They are not
+    generated from it — this file is a static asset rasterised by
+    scripts/build-og.mjs. If a receipt changes materially, change it here too.
+
+    Teal on paper: #0F766E on #FAFAF8. Ship as PNG via `npm run og`.
   -->
   <rect width="1200" height="630" fill="#FAFAF8"/>
   <rect x="0" y="0" width="1200" height="6" fill="#0F766E"/>
 
-  <!-- rule-trace card -->
-  <g>
-    <rect x="80" y="96" width="740" height="438" rx="10" fill="#FFFFFF" stroke="#E4E5E2" stroke-width="2"/>
-    <g font-family="'IBM Plex Mono', ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace">
-      <text x="120" y="156" font-size="22" letter-spacing="3" fill="#5A5F63">VERDICT · SHIPMENT PRE-CHECK</text>
-      <line x1="120" y1="182" x2="780" y2="182" stroke="#E4E5E2" stroke-width="2"/>
-
-      <text x="120" y="232" font-size="24" fill="#1A1D1F">rule BG-XDOC-007 · documentary consistency</text>
-      <text x="120" y="274" font-size="24" fill="#1A1D1F">rule BG-DG-014  · UN listing check</text>
-      <text x="120" y="316" font-size="24" fill="#1A1D1F">rule BG-DOC-001 · required documents</text>
-
-      <text x="120" y="370" font-size="22" fill="#5A5F63">snapshot b439ef74… · replayed bit-for-bit</text>
-
-      <line x1="120" y1="400" x2="780" y2="400" stroke="#E4E5E2" stroke-width="2"/>
-      <text x="120" y="448" font-size="26" fill="#0F766E">every verdict has a receipt</text>
-      <text x="120" y="496" font-size="22" fill="#5A5F63">96.3% strict · 511-field corpus · 57 rules</text>
-    </g>
-  </g>
-
-  <!-- PASS stamp -->
-  <g transform="translate(905 175) rotate(-9)">
-    <rect x="-120" y="-58" width="240" height="116" rx="10" fill="none" stroke="#0F766E" stroke-width="7"/>
-    <rect x="-108" y="-46" width="216" height="92" rx="6" fill="none" stroke="#0F766E" stroke-width="2" opacity="0.55"/>
-    <text x="0" y="24" text-anchor="middle" font-family="'IBM Plex Mono', ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="64" font-weight="700" letter-spacing="10" fill="#0F766E">PASS</text>
-  </g>
-
-  <!-- identity -->
+  <!-- identity: the name is the subject of this card, not a signature on it -->
   <g font-family="'IBM Plex Sans', 'DejaVu Sans', Arial, sans-serif">
-    <text x="868" y="356" font-size="44" font-weight="600" fill="#1A1D1F">Andrew Xia</text>
-    <!-- Capability, not a job card. "Name / Title / Specialism / City" stacked
-         is the layout of a candidate profile; this link is shared on LinkedIn,
-         where it sits next to the owner's actual headline. -->
-    <text x="868" y="404" font-size="24" fill="#5A5F63">AI systems with a</text>
-    <text x="868" y="436" font-size="24" fill="#5A5F63">deterministic core</text>
-    <text x="868" y="528" font-size="28" font-weight="600" fill="#0F766E">The AI drafts.</text>
-    <text x="868" y="562" font-size="28" font-weight="600" fill="#0F766E">The rules decide.</text>
+    <text x="88" y="176" font-size="82" font-weight="600" fill="#1A1D1F" letter-spacing="-1">Andrew Xia</text>
+    <text x="88" y="248" font-size="34" font-weight="600" fill="#0F766E">A claim about execution has to be paid for</text>
+    <text x="88" y="292" font-size="34" font-weight="600" fill="#0F766E">by something that cannot lie about execution.</text>
   </g>
+
+  <line x1="88" y1="348" x2="1112" y2="348" stroke="#E4E5E2" stroke-width="2"/>
+
+  <!-- one line per system, same weight, same shape: parity is the point -->
+  <g font-family="'IBM Plex Mono', ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace">
+    <text x="88" y="404" font-size="21" letter-spacing="2" fill="#0F766E">DEVLOOP</text>
+    <text x="340" y="404" font-size="24" fill="#1A1D1F">an exit code decides done, never the model's report</text>
+
+    <text x="88" y="456" font-size="21" letter-spacing="2" fill="#0F766E">VERDICT</text>
+    <text x="340" y="456" font-size="24" fill="#1A1D1F">every finding ships the SHA-256 of its ruleset</text>
+
+    <text x="88" y="508" font-size="21" letter-spacing="2" fill="#0F766E">TERRARIUM</text>
+    <text x="340" y="508" font-size="24" fill="#1A1D1F">one seed, two runs, bit-identical or the test fails</text>
+  </g>
+
+  <line x1="88" y1="552" x2="1112" y2="552" stroke="#E4E5E2" stroke-width="2"/>
+  <text x="88" y="592" font-size="22" letter-spacing="2" fill="#5A5F63" font-family="'IBM Plex Mono', ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace">hh0hh.com</text>
 </svg>
