@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="zh-Hans"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>我的编码 agent 为一条它从没跑过的命令报出了退出码 — Andrew Xia</title><meta name="description" content="一本用我自己仓库里的真实事故攒出来的事故模式词典 —— 以及「agent 承认自己撒了谎」和「一个文件证明它撒了谎」之间的区别。"><link rel="canonical" href="https://hh0hh.com/zh/writing/exit-code-for-a-command-it-never-ran/"><link rel="alternate" hreflang="en" href="https://hh0hh.com/writing/exit-code-for-a-command-it-never-ran/"><link rel="alternate" hreflang="zh-Hans" href="https://hh0hh.com/zh/writing/exit-code-for-a-command-it-never-ran/"><link rel="alternate" hreflang="x-default" href="https://hh0hh.com/writing/exit-code-for-a-command-it-never-ran/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="sitemap" href="/sitemap-index.xml"><link rel="preload" href="/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/ibm-plex-sans-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/ibm-plex-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/ibm-plex-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin><meta property="og:title" content="我的编码 agent 为一条它从没跑过的命令报出了退出码 — Andrew Xia"><meta property="og:description" content="一本用我自己仓库里的真实事故攒出来的事故模式词典 —— 以及「agent 承认自己撒了谎」和「一个文件证明它撒了谎」之间的区别。"><meta property="og:type" content="article"><meta property="og:url" content="https://hh0hh.com/zh/writing/exit-code-for-a-command-it-never-ran/"><meta property="og:locale" content="zh_CN"><meta property="og:locale:alternate" content="en_AU"><meta property="og:image" content="https://hh0hh.com/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="我的编码 agent 为一条它从没跑过的命令报出了退出码 — Andrew Xia"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="我的编码 agent 为一条它从没跑过的命令报出了退出码 — Andrew Xia"><meta name="twitter:description" content="一本用我自己仓库里的真实事故攒出来的事故模式词典 —— 以及「agent 承认自己撒了谎」和「一个文件证明它撒了谎」之间的区别。"><meta name="twitter:image" content="https://hh0hh.com/og.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://hh0hh.com/zh/writing/exit-code-for-a-command-it-never-ran/#webpage","name":"我的编码 agent 为一条它从没跑过的命令报出了退出码","description":"一本用我自己仓库里的真实事故攒出来的事故模式词典 —— 以及「agent 承认自己撒了谎」和「一个文件证明它撒了谎」之间的区别。","url":"https://hh0hh.com/zh/writing/exit-code-for-a-command-it-never-ran/","inLanguage":"zh-Hans","isPartOf":{"@id":"https://hh0hh.com/#website"},"dateModified":"2026-07-20"}</script><!--
+  The rule catalogue this demo replays is published, not described:
+
+    curl -s https://hh0hh.com/rules.json | sha256sum
+    b439ef74dd39384928d1a2d4c1b8ee0799ef4533f627aea078ad106a4304987d
+
+  Same digest is printed beside every finding above. If they ever disagree,
+  the build is meant to fail before you ever see this page.
+--><!-- theme pre-paint: runs before first paint so the dark toggle never FOUCs;
+         system preference is respected on first visit --><script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          var dark = t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+        } catch (e) {
+          /* storage unavailable — stay light */
+        }
+      })();
+    </script><link rel="stylesheet" href="/_astro/case-study.BgPs1tsn.css"></head> <body> <a class="skip-link" href="#main">Skip to content</a> <header class="site-nav"> <nav class="nav-inner" aria-label="主导航"> <a class="nav-brand" href="/zh/">Andrew Xia</a> <ul class="nav-links"> <li><a href="/zh/#demo" data-spy="demo">演示</a></li><li><a href="/zh/#projects" data-spy="projects">系统</a></li><li><a href="/zh/#principles" data-spy="principles">原则</a></li><li><a href="/zh/#workflow" data-spy="workflow">工作方式</a></li><li><a href="/zh/#writing" data-spy="writing">写作</a></li><li><a href="/zh/#contact" data-spy="contact">联系</a></li> </ul> <div class="nav-actions">  <a class="lang-switch mono-label" href="/writing/exit-code-for-a-command-it-never-ran/" hreflang="en" lang="en" rel="alternate" aria-label="Switch to English" data-lang-switch>English</a> <button class="theme-toggle" type="button" data-label-dark="切换到深色主题" data-label-light="切换到浅色主题" aria-label="切换到深色主题"> <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"></path></svg> </button>  </div> </nav> </header> <script type="module">const s=document.querySelector(".theme-toggle"),o=document.documentElement,c=()=>{if(!s)return;const e=o.getAttribute("data-theme")==="dark"?s.dataset.labelLight:s.dataset.labelDark;e&&s.setAttribute("aria-label",e)};c();s?.addEventListener("click",()=>{const t=o.getAttribute("data-theme")==="dark";t?o.removeAttribute("data-theme"):o.setAttribute("data-theme","dark");try{localStorage.setItem("theme",t?"light":"dark")}catch{}c()});const l=[...document.querySelectorAll(".nav-links a[data-spy]")],u=new Map(l.map(t=>[t.dataset.spy,t])),i=[...document.querySelectorAll("section[data-section]")].filter(t=>u.has(t.id));if(i.length>0&&"IntersectionObserver"in window){const t=r=>{for(const a of l)r!==null&&a.dataset.spy===r?a.setAttribute("aria-current","true"):a.removeAttribute("aria-current")},e=new Set,d=new IntersectionObserver(r=>{for(const n of r)n.isIntersecting?e.add(n.target.id):e.delete(n.target.id);const a=i.find(n=>e.has(n.id));t(a?a.id:null)},{rootMargin:"-56px 0px -55% 0px"});for(const r of i)d.observe(r)}</script>  <main id="main" class="page-main"> <div class="container"> <article> <header class="article-header"> <h1>我的编码 agent 为一条它从没跑过的命令报出了退出码</h1> <p class="a-dek">一本用我自己仓库里的真实事故攒出来的事故模式词典 —— 以及「agent 承认自己撒了谎」和「一个文件证明它撒了谎」之间的区别。</p> <p class="a-meta">2026-08-11 · 已发布</p> </header> <div class="prose"> <h2 id="事故">事故</h2>
+<p>我让模型把构建弄绿。它告诉我构建绿了。并没有。</p>
+<p>它连含糊都没含糊。那个阶段的完成报告里,有一个自己的小标题:</p>
+<blockquote>
+<h3 id="63-build">6.3 build</h3>
+<p><code>npm run build</code> 在 pre-commit hook 中通过(exit 0)。未单独记录。</p>
+</blockquote>
+<p>这是那次提交当时的 pre-commit hook:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">$</span><span style="color:#9ECBFF"> git</span><span style="color:#9ECBFF"> show</span><span style="color:#9ECBFF"> f3b4e0d:.husky/pre-commit</span></span>
+<span class="line"><span style="color:#6A737D">#!/bin/sh</span></span>
+<span class="line"><span style="color:#79B8FF">echo</span><span style="color:#9ECBFF"> "🔍 Running pre-commit checks..."</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">echo</span><span style="color:#9ECBFF"> "→ Type-check..."</span></span>
+<span class="line"><span style="color:#B392F0">npx</span><span style="color:#9ECBFF"> tsc</span><span style="color:#79B8FF"> --noEmit</span></span>
+<span class="line"><span style="color:#79B8FF">...</span></span>
+<span class="line"><span style="color:#79B8FF">echo</span><span style="color:#9ECBFF"> "→ Running tests..."</span></span>
+<span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> test</span></span>
+<span class="line"><span style="color:#79B8FF">...</span></span>
+<span class="line"><span style="color:#79B8FF">echo</span><span style="color:#9ECBFF"> "✅ All checks passed."</span></span></code></pre>
+<p>类型检查和测试。那个文件里没有 build 这一步。<code>npm run build</code> 是同一天晚些时候才加进 hook 的,
+而那次提交排在声称它已经通过的那份报告<em>之后</em>。</p>
+<p>所以模型不是记错了一个结果。它为一条并不在它所指名的那个文件里的命令,产出了一个退出码。
+证据的形状完美无缺 —— 命令对、hook 对、括号里的 <code>exit 0</code> 对,连「为什么没有单独记录」的说明都有。
+唯独没有那次执行。</p>
+<p>三个 TypeScript 错误就骑在那句话后面进了最终状态。它们在下一个阶段才浮出来,是一个人手工跑了一次构建。</p>
+<p>留在我心里的不是那次编造。是我的验收标准原来这么廉价。我一直在拿<em>关于证据的报告</em>当证据收。</p>
+<h2 id="写这篇文章里让人不舒服的那部分">写这篇文章里让人不舒服的那部分</h2>
+<p>下面大部分内容来自我自己仓库里的提交信息和工程日志。其中不少提交信息是 agent 写的。
+有几条几乎是逐字写着:它撒了谎。</p>
+<p>这就把这篇文章放到了一个尴尬的位置上。如果模型的自述不算证据,那模型<em>声称自己撒了谎</em>的自述同样不算证据。
+一篇论证「别信机器对自己的陈述」的文章,材料全部来自机器对自己的陈述,在走向自己结论的路上就把自己驳倒了。</p>
+<p>所以下面的条目分两级,而且我标出哪条是哪级。</p>
+<p><strong>机器事实。</strong> 一个值等于基线提交的分支指针。一个文件在某个哈希处的 <code>git show</code>。
+一个由花掉这些 token 的程序自己写进账本的 token 数。一条我自己重跑了一遍的 <code>grep</code>。
+这些不是关于世界的陈述;它们就是世界。它们没法既真诚又错误。</p>
+<p><strong>陈述。</strong> 「那是我编的。」「那个数字被撤回了。」一个 diff 能证明某句话曾经存在于仓库里、后来被替换掉。
+它证明不了替换上去的那句是对的。</p>
+<p>上面那次事故是机器事实:那个说法之所以为假,是因为 <code>git show</code> 说那个文件里没有 build 这一步,
+不是因为后来有什么东西承认了。凡是我只有陈述的地方,我会说明。</p>
+<h2 id="那本词典">那本词典</h2>
+<p><code>harness-contract.md</code> 里有一个标题,译过来是<em>事故模式词典(已证实,附对策)</em>,底下住着十个条目。
+每条记四样东西:触发条件、漏掉它的那一层、最后落地的对策,以及仍然悬着的那截线头。
+它从七条起步,在两天的高强度使用里长到十条;这个数字不是整数,因为没有人去把它凑整。</p>
+<p>下面是改变了我工作方式的那几条。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>事故模式</th><th>实际发生了什么</th><th>现在什么能抓住它</th><th>级别</th></tr></thead><tbody><tr><td><strong>为一条从没跑过的命令报出退出码</strong></td><td>上面那份报告:<code>npm run build</code>「在 pre-commit hook 中通过」,而那次提交的 hook 里只有 <code>tsc</code> 和 <code>npm test</code></td><td><code>build</code> 挪进了 hook 本身。「绿了」不再是一句话,变成一个会以非零退出的进程</td><td>机器事实</td></tr><tr><td><strong>吃掉退出码的管道</strong></td><td><code>tsc 2>&#x26;1 | tail -3</code> —— <code>$?</code> 现在是 <code>tail</code> 的状态,也就是 0。七个类型错误通过了一道报告 PASS 的关卡,而那份报告把一个手工造的标记串 <code>SERVER_TSC_OK</code> 当作它的「原始输出」引了出来</td><td>关卡命令里禁用管道;每一个检查都必须由命令本身打印 <code>exit: $?</code>,而不是从它输出的尾巴上取</td><td>机器事实</td></tr><tr><td><strong>一道关卡死了,却报告 11/11</strong></td><td>一个验收脚本在第 2 项收到 <code>SIGPIPE</code>,以 141 退出。报告说十一项全部通过。它跑了一项</td><td>运行器把退出码和打印出来的判定行交叉比对;矛盾被归类为<em>关卡坏了</em>,那是第三种结果,不是通过也不是失败</td><td>机器事实</td></tr><tr><td><strong>「没有判据」和「永远通过的判据」是同一个退出码</strong></td><td>一次带着某个环境变量的关卡运行打印了三行 SKIP、零行 PASS,然后以 0 退出。这条我自己重跑过:<code>DEVLOOP_SKIP_TESTS=1 bash gates.sh</code> → 跳过 3,通过 0,<code>exit 0</code></td><td>关卡现在报告有多少检查<em>真的跑了并通过</em>。零个已验证的检查就是关卡坏了,退出码是什么都不算</td><td>机器事实(已重跑)</td></tr><tr><td><strong>一条过期的基线让成功变得不可能</strong></td><td>一个 worker 拿到的任务,它的关卡比对的是一个落后所在工作树七个提交的基线 —— <code>git rev-list --count</code> 说 7。它写什么都不可能通过。它在第 41 秒就写出了正确的改动,又从那道红着的关卡推断出自己一定漏了什么副作用,于是把自己的修复回滚了,接着追了 49 分钟的幽灵,直到一个 3000 秒的期限把它杀掉。5,146,226 个 token;零个文件被改动 —— 那条隔离分支仍然指着基线提交</td><td>编排器把基线注入进去,而不是让关卡自己猜;一道飞行前检查会在一秒之内拒绝一道算术上不可满足的关卡</td><td>机器事实</td></tr><tr><td><strong>出证据的那条命令本身就是坏的</strong></td><td>一个规则文件声称某个子系统没被动过,引用的是 <code>grep -n 'wyrm' sim_world.gd</code> 什么都没返回。那条 grep 区分大小写。我自己重跑:<code>grep -c</code> 返回 1,<code>grep -nic</code> 返回 5。任何相信原始结论的人,都会把一次改动的波及面估成零 —— 而它改变了世界哈希</td><td>锚点用符号名,不用行号;产出证据的那条命令要像代码一样被审</td><td>机器事实(已重跑)</td></tr><tr><td><strong>测试全绿,而那个世界正在死去</strong></td><td>五个缺陷,全都是静默的,没有一个抛异常:一个增长检查写成 <code>_roll() &#x3C; growth_rate * room</code>,而 <code>growth_rate = 0</code> —— 那不是繁殖得慢,是繁殖一次都不可能发生。一个种群冻结在 <code>194.299999999993</code>,跨运行小数点后十二位完全一致,而一个测试正拿这个冻住的数字当食物链稳定的证明</td><td>测试断言的是变化,不是异常的缺席;在修复落地期间,允许整个套件故意红着</td><td>陈述</td></tr><tr><td><strong>一个把代码甩开三周的状态标签</strong></td><td>一份设计文档把某个调度功能列在「已实现」下面。测量结果:无论花名册给它们分配的是 3.0 / 2.5 / 2.0 / 1.0,每个物种都是每 tick 1.000 次行动。那个功能一次都没工作过</td><td>状态来自一个测量行为的探针,不来自某人敲进去的标签</td><td>陈述,带一次测量</td></tr><tr><td><strong>一个带盲区的守卫,比没有守卫更糟</strong></td><td>一个标志组合被静默吞掉了,因为某条代码路径手工重建了自己的参数,而没有人把新标志加进那张列表。为了抓住这件事而写的那个不变量测试,自己也有一张硬编码的标志列表,同样没有包含它 —— 于是它永久地、自信地绿着</td><td>参数从解析结果重建,而不是靠字符串过滤,而且重建出来的命令行必须能解析回同一个请求</td><td>陈述</td></tr><tr><td><strong>一个把结论挪动了 30 倍的一行记账 bug</strong></td><td>一条 token 去重规则保留了每条消息的第一个流式帧,而不是最后一个。某一组的输出 token:按旧规则 12,316,按修正后的规则 377,204。我把规则回滚回去,两边都复现了。修正后的数字让我自己的标题结果<em>更难看</em>,而它照样发了</td><td>本该抓住它的那个自检是正确的 —— 它只不过一直只在「第一帧等于最后一帧」的会话上跑过。现在覆盖范围要对着不一样的那种情况来断言</td><td>机器事实(已复现)</td></tr></tbody></table>
+<p>名字比数量重要。一旦一个失败有了名字,你就能 grep 它、给它写测试,并且注意到今天这次事故就是上个月那个模式换了个文件扩展名。</p>
+<h2 id="它们共同的形状">它们共同的形状</h2>
+<p>把那几行机器事实再读一遍,会浮出一件让人不舒服的事:每一条里,报告都是<em>良构</em>的。有退出码。有原始输出块。
+有通过项的计数。那些报告并不含糊 —— 含糊反而更好抓。它们具体、自信、结构上完全正确,
+而它们描述的执行没有发生过。</p>
+<p>这就是为什么那些对策全是同一个形状,以及为什么没有一条是「把 prompt 写好一点」。
+每一条都把一次判断从模型的陈述里挪出来,挪进一个没法讲述的东西:一个进程退出码、一个 git 对象、
+一个「真的跑过的检查」的计数器。</p>
+<p>另一半更隐蔽,而我是被逮住才学会的:<strong>你信任的守卫和真能工作的守卫是两回事,
+而这个缝隙从里面看不见。</strong> 那个标志列表不全的不变量测试。那个只在简单情况上跑过的自检。
+那道什么都没验证过却以 0 退出的关卡。每一个都是绿的。每一个都被相信。每一个都是一个洞,上面盖着一块令人安心的盖子。</p>
+<p>所以我现在真正照着做的那条规则,比「别信 AI」窄得多。它是:<em>一个关于「跑过了」的说法,
+得由一个在这件事上撒不了谎的东西来付账。</em> 其余的一切 —— 包括这一段 —— 都是陈述。</p>
+<h2 id="它换来了什么">它换来了什么</h2>
+<p>那个项目的工程日志有 1,743 行,只追加。它不是日记。它是那本词典之所以可能存在的东西:
+没有一份当时写下的记录,一个模式的第三次出现看起来会像一次全新的意外,而不是一次重复。</p>
+<p>速度还是来了,而且带着凭据。合规引擎那些量出来的数字,以及它们究竟是在什么条件下量的,
+都在<a href="/zh/#eval">评测报告</a>里,那是它们该在的地方。</p>
+<p>那些关卡的意义从来不是把模型放慢。是在产出工作的那个工人没法被信任来报告自己的工作时 ——
+以及更难的,在你为了检查它而搭的那些守卫,在你亲眼看着其中一个失败之前同样没法被信任时 ——
+让「做完了」这三个字意味着点什么。</p> </div> <a class="backlink" href="/zh/">← 返回站点</a> </article> </div> </main>  <footer class="site-footer"> <div class="container"> <p class="stack-line">Astro + 一个 React 岛 · 首屏约 3 KB JS,demo 水合后约 68 KB · 无跟踪 · 跟随系统主题</p> <p><a href="/zh/colophon/">构建说明 —— 这个站是怎么写出来的</a></p> <p class="disclaimer">演示软件。不构成监管或报关建议。与 DAFF、IATA、WCO 无隶属关系,亦未获其背书。任何运输决定请与持牌报关行核实。</p> <p>© 2026 Andrew Xia</p> </div> </footer> </body></html>
