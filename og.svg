@@ -1,56 +1,60 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <!--
-    Share card. This is the only thing most people ever see of this site — it is
-    what LinkedIn, Slack and iMessage render, and it is what the owner himself
-    looks at when he pastes the link.
+    Share card, English. This is the only thing most people ever see of this
+    site — it is what LinkedIn, Slack and iMessage render, and it is what the
+    owner himself looks at when he pastes the link.
 
-    It used to be a Verdict product card: a 740x438 rule-trace panel with three
-    BG-* rule ids, a rotated PASS stamp and `96.3% strict · 511-field corpus`,
-    with the name set at 44px off to the side. That is a card for a compliance
-    engine that happens to be signed by someone. Four rounds of rebalancing
-    measured only what was inside <main> and never looked here, which is why the
-    site kept reading as a product showcase after each one.
+    It used to be a Verdict product card: a rule-trace panel with three BG-*
+    rule ids, a rotated PASS stamp and `96.3% strict · 511-field corpus`, with
+    the name set at 44px off to the side. Then it became a name at 82px over an
+    epigram. Both were wrong in the same way the first screen was wrong: a
+    reader learned nothing about what this person does.
 
-    Now: the name is the largest thing, the claim under it covers all three
-    systems, and each system gets one line stating a mechanism — no scores, no
-    product hierarchy, no stamp. DevLoop leads because it is the only one a
-    reader can open today.
+    Now it mirrors the hero exactly — name as the kicker, the six-word claim as
+    the largest element, and one plain-language line per system. If the hero
+    changes, this changes with it; a share card that disagrees with the page it
+    links to is a worse lie than an ugly one.
 
-    ⛔ Do not add a number to this card. A figure here arrives with no scope note
-    and no way to check it, which is the shape this site exists to argue against.
-    The three lines below are mechanisms; mechanisms are either in the code or
-    they are not.
+    ⛔ NO NUMBER ON THIS CARD. A figure here arrives with no scope note and no
+    way to check it, which is the shape this site exists to argue against. That
+    is why the Verdict line says "written rules" and not "57 written rules",
+    even though the page says the number two inches lower.
 
-    ⚠️ These three lines paraphrase `src/data/systems.ts` receipts. They are not
-    generated from it — this file is a static asset rasterised by
-    scripts/build-og.mjs. If a receipt changes materially, change it here too.
+    ⚠️ These three lines paraphrase `plainLine` in `src/data/systems.ts`. They
+    are NOT generated from it — this file is a static asset rasterised by
+    scripts/build-og.mjs. If a plainLine changes materially, change it here and
+    in og.zh.svg too.
 
     Teal on paper: #0F766E on #FAFAF8. Ship as PNG via `npm run og`.
   -->
   <rect width="1200" height="630" fill="#FAFAF8"/>
   <rect x="0" y="0" width="1200" height="6" fill="#0F766E"/>
 
-  <!-- identity: the name is the subject of this card, not a signature on it -->
   <g font-family="'IBM Plex Sans', 'DejaVu Sans', Arial, sans-serif">
-    <text x="88" y="176" font-size="82" font-weight="600" fill="#1A1D1F" letter-spacing="-1">Andrew Xia</text>
-    <text x="88" y="248" font-size="34" font-weight="600" fill="#0F766E">A claim about execution has to be paid for</text>
-    <text x="88" y="292" font-size="34" font-weight="600" fill="#0F766E">by something that cannot lie about execution.</text>
+    <!-- the name is the kicker here, exactly as on the page -->
+    <text x="88" y="128" font-size="26" font-weight="500" fill="#0F766E" letter-spacing="3"
+          font-family="'IBM Plex Mono', ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace">ANDREW XIA</text>
+
+    <!-- the claim: largest element, because it is the only line that tells a
+         stranger what he does -->
+    <text x="88" y="248" font-size="76" font-weight="600" fill="#1A1D1F" letter-spacing="-2">The AI drafts.</text>
+    <text x="88" y="330" font-size="76" font-weight="600" fill="#1A1D1F" letter-spacing="-2">The rules decide.</text>
   </g>
 
-  <line x1="88" y1="348" x2="1112" y2="348" stroke="#E4E5E2" stroke-width="2"/>
+  <line x1="88" y1="392" x2="1112" y2="392" stroke="#E4E5E2" stroke-width="2"/>
 
   <!-- one line per system, same weight, same shape: parity is the point -->
   <g font-family="'IBM Plex Mono', ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace">
-    <text x="88" y="404" font-size="21" letter-spacing="2" fill="#0F766E">DEVLOOP</text>
-    <text x="340" y="404" font-size="24" fill="#1A1D1F">an exit code decides done, never the model's report</text>
+    <text x="88" y="442" font-size="19" letter-spacing="2" fill="#0F766E">DEVLOOP</text>
+    <text x="340" y="442" font-size="22" fill="#1A1D1F">runs my coding agents; a test suite decides when work is done</text>
 
-    <text x="88" y="456" font-size="21" letter-spacing="2" fill="#0F766E">VERDICT</text>
-    <text x="340" y="456" font-size="24" fill="#1A1D1F">every finding ships the SHA-256 of its ruleset</text>
+    <text x="88" y="490" font-size="19" letter-spacing="2" fill="#0F766E">VERDICT</text>
+    <text x="340" y="490" font-size="22" fill="#1A1D1F">reads air-cargo paperwork; written rules decide pass or fail</text>
 
-    <text x="88" y="508" font-size="21" letter-spacing="2" fill="#0F766E">TERRARIUM</text>
-    <text x="340" y="508" font-size="24" fill="#1A1D1F">one seed, two runs, bit-identical or the test fails</text>
+    <text x="88" y="538" font-size="19" letter-spacing="2" fill="#0F766E">TERRARIUM</text>
+    <text x="340" y="538" font-size="22" fill="#1A1D1F">the same seed rebuilds the same world, exactly, every run</text>
   </g>
 
-  <line x1="88" y1="552" x2="1112" y2="552" stroke="#E4E5E2" stroke-width="2"/>
-  <text x="88" y="592" font-size="22" letter-spacing="2" fill="#5A5F63" font-family="'IBM Plex Mono', ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace">hh0hh.com</text>
+  <line x1="88" y1="574" x2="1112" y2="574" stroke="#E4E5E2" stroke-width="2"/>
+  <text x="88" y="608" font-size="20" letter-spacing="2" fill="#5A5F63" font-family="'IBM Plex Mono', ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace">hh0hh.com</text>
 </svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!--
+    分享卡片,中文版。/zh/ 下每一页发的是这张。
+
+    在它存在之前,把中文页转发到微信或 LinkedIn,预览图是英文那张 —— 一个中文
+    读者点进来之前看到的是他看不懂的一段英文,而站里明明有完整的中文版。
+
+    ⛔ 版式和 og.svg 逐像素对齐:同样的坐标、同样的字号阶梯、同样的三行结构。
+    两张卡不是两个设计,是同一个设计的两个语言。改一张就得改另一张。
+
+    ⛔ 这张卡上不许出现数字。理由和英文版一样:一个数字出现在这里,既没有范围
+    说明也没法核对,而这正是这个站反对的形状。所以 Verdict 那行写的是「成文
+    规则」,不是「57 条成文规则」—— 尽管页面上往下两寸就写着那个数字。
+
+    ⛔ 字体栈里 Plex 在前、汉字系统字体在后:Plex 覆盖拉丁字母和数字且没有汉字
+    字形,所以只有汉字落到系统字体上,卡片的字面观感因此保住。渲染用的是
+    Chrome headless(见 scripts/build-og.mjs),Windows/macOS 上都有汉字字体。
+
+    ⚠️ 三行文案对应 src/i18n/zh.ts 的 PLAIN_ZH。不是生成的 —— 这是静态资源。
+    PLAIN_ZH 改了,这里和 og.svg 都要跟着改。
+  -->
+  <rect width="1200" height="630" fill="#FAFAF8"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#0F766E"/>
+
+  <g font-family="'IBM Plex Sans', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Source Han Sans SC', sans-serif">
+    <text x="88" y="128" font-size="26" font-weight="500" fill="#0F766E" letter-spacing="3"
+          font-family="'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace">ANDREW XIA</text>
+
+    <!-- 主张:整张卡最大的元素,因为它是唯一一句告诉陌生人「他做什么」的话 -->
+    <text x="88" y="252" font-size="76" font-weight="600" fill="#1A1D1F">AI 起草,</text>
+    <text x="88" y="342" font-size="76" font-weight="600" fill="#1A1D1F">规则拍板。</text>
+  </g>
+
+  <line x1="88" y1="392" x2="1112" y2="392" stroke="#E4E5E2" stroke-width="2"/>
+
+  <g font-family="'IBM Plex Mono', ui-monospace, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', monospace">
+    <text x="88" y="442" font-size="19" letter-spacing="2" fill="#0F766E">DEVLOOP</text>
+    <text x="340" y="442" font-size="22" fill="#1A1D1F">跑我的编程 agent;活算不算干完,由一套测试说了算</text>
+
+    <text x="88" y="490" font-size="19" letter-spacing="2" fill="#0F766E">VERDICT</text>
+    <text x="340" y="490" font-size="22" fill="#1A1D1F">读航空货运单证;放行还是拦下,由成文规则说了算</text>
+
+    <text x="88" y="538" font-size="19" letter-spacing="2" fill="#0F766E">TERRARIUM</text>
+    <text x="340" y="538" font-size="22" fill="#1A1D1F">同一个种子,每次都重建出一模一样的世界</text>
+  </g>
+
+  <line x1="88" y1="574" x2="1112" y2="574" stroke="#E4E5E2" stroke-width="2"/>
+  <text x="88" y="608" font-size="20" letter-spacing="2" fill="#5A5F63" font-family="'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace">hh0hh.com/zh/</text>
+</svg>
