@@ -34,16 +34,16 @@
   <line x1="88" y1="392" x2="1112" y2="392" stroke="#E4E5E2" stroke-width="2"/>
 
   <g font-family="'IBM Plex Mono', ui-monospace, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', monospace">
-    <text x="88" y="442" font-size="19" letter-spacing="2" fill="#0F766E">DEVLOOP</text>
-    <text x="340" y="442" font-size="22" fill="#1A1D1F">跑我的编程 agent;活算不算干完,由一套测试说了算</text>
-
-    <text x="88" y="490" font-size="19" letter-spacing="2" fill="#0F766E">VERDICT</text>
-    <text x="340" y="490" font-size="22" fill="#1A1D1F">读航空货运单证;放行还是拦下,由成文规则说了算</text>
-
-    <text x="88" y="538" font-size="19" letter-spacing="2" fill="#0F766E">TERRARIUM</text>
-    <text x="340" y="538" font-size="22" fill="#1A1D1F">同一个种子,每次都重建出一模一样的世界</text>
+    <text x="88" y="430" font-size="18" letter-spacing="1" fill="#0F766E">NONCONSTANT</text>
+    <text x="360" y="430" font-size="20" fill="#1A1D1F">给 AI 干的活装闸门;判不出来时它说判不出来,不说没问题</text>
+    <text x="88" y="470" font-size="18" letter-spacing="1" fill="#0F766E">DEVLOOP</text>
+    <text x="360" y="470" font-size="20" fill="#1A1D1F">跑我的编程 agent;活算不算干完,由一套测试说了算</text>
+    <text x="88" y="510" font-size="18" letter-spacing="1" fill="#0F766E">VERDICT</text>
+    <text x="360" y="510" font-size="20" fill="#1A1D1F">读航空货运单证;放行还是拦下,由成文规则说了算</text>
+    <text x="88" y="550" font-size="18" letter-spacing="1" fill="#0F766E">TERRARIUM</text>
+    <text x="360" y="550" font-size="20" fill="#1A1D1F">同一个种子,每次都重建出一模一样的世界</text>
   </g>
 
-  <line x1="88" y1="574" x2="1112" y2="574" stroke="#E4E5E2" stroke-width="2"/>
-  <text x="88" y="608" font-size="20" letter-spacing="2" fill="#5A5F63" font-family="'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace">hh0hh.com/zh/</text>
+  <line x1="88" y1="580" x2="1112" y2="580" stroke="#E4E5E2" stroke-width="2"/>
+  <text x="88" y="611" font-size="20" letter-spacing="2" fill="#5A5F63" font-family="'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace">hh0hh.com/zh/</text>
 </svg>
